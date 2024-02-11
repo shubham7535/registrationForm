@@ -1,0 +1,41 @@
+<form [formGroup]="registration" (ngSubmit)="register()" class="boarder boarder-dark">
+    <div class="row g-6">
+        <div class="col text-center p-2 mb-3 bg-light" >
+            <span class="fs-3">Register</span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mg-3">
+            <label for="firstname" class="form-labal">First Name</label>
+            <input type="text" class="form-control" id="firstname" formControlName="FirstName">
+            <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+            First Name is required</div>
+        </div>
+        <div class="col mg-3">
+            <label for="lastname" class="form-labal">Last Name</label>
+            <input type="text" class="form-control" id="lastname" formControlName="LastName">
+            <div class="form-text text-danger" *ngIf="LastName.errors?.['required'] && (LastName.touched || LastName.dirty)">
+                Last Name is required</div>
+        </div>
+    </div>
+    <div class="col mg-3">
+        <label for="email" class="form-labal">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="Email">
+        <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">
+            email  is required</div>
+    </div>
+    <div class="col mg-3">
+        <label for="password" class="form-labal">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="Password">
+        <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+           Password is required</div>
+    </div>
+    <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+    </div>
+</form>

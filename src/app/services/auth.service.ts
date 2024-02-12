@@ -11,7 +11,10 @@ export class AuthService {
 
   registerUSer(user: Array<any>){
   return this.http.post(this.Url + "User/CreateUser",{
-    user
+    FirstName:user[0],
+    LastName:user[1],
+    Email:user[2],
+    Password:user[3]
   },{
     responseType:'text',
   });

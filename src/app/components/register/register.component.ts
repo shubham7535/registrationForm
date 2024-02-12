@@ -11,7 +11,7 @@ export class RegisterComponent {
   constructor(private Authservice : AuthService){
 
   }
-
+   result = "" ;
   registration = new FormGroup({
     FirstName: new FormControl("", [Validators.required]),
     LastName: new FormControl("",[ Validators.required]),
@@ -19,20 +19,16 @@ export class RegisterComponent {
     Password: new FormControl("",[ Validators.required]) 
   });
 
-  UserData= [ this.registration.value.FirstName , 
-    this.registration.value.LastName ,
-    this.registration.value.Email,
-    this.registration.value.Password] ;
-
   register(){
      this.Authservice.registerUSer([ this.registration.value.FirstName , 
       this.registration.value.LastName ,
       this.registration.value.Email,
       this.registration.value.Password])
       .subscribe(res => (
-      console.log(res)
+       this.result = res
      ))
-    console.log(this.registration);
+    
+     window.alert(this.result);
   }
 
   get FirstName(): FormControl{
